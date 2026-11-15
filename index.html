@@ -566,6 +566,16 @@ body.ie{margin:0;background:#fff}
   .ie-trh{display:none}.ie-tr{grid-template-columns:1fr 1fr;row-gap:4px}.ie-tr .nm{grid-column:1/-1;font-size:16px}}
 @media(max-width:520px){.ie-hello h1{font-size:27px}.ie-test h3{font-size:23px}}
 @media(prefers-reduced-motion:reduce){.ie-stat .dot,.ie-spin{animation:none}}
+.ie-chip.live{background:var(--red)}
+.ie-chip.ok{background:#0E8A4F}
+.lp-btn.ie-go{margin-top:auto}
+.ie-res{display:grid;gap:8px;margin-top:12px}
+.ie-ri{display:flex;align-items:center;gap:14px;background:#fff;border-radius:16px;padding:12px 14px}
+.ie-ri div{flex:1;min-width:0}.ie-ri b{display:block}.ie-ri small{color:var(--slate);font-size:13.5px}
+.ie-ri a{font-weight:700;color:var(--ink);font-size:14px}
+.ie-bd{flex:none;display:inline-grid;place-items:center;width:52px;height:52px;border-radius:50%;background:var(--ink);color:#fff;font-weight:800;font-size:18px}
+.ie-bd.sm{width:auto;height:auto;border-radius:8px;padding:2px 8px;font-size:14px;margin-right:6px;display:inline-block}
+.ie-tr{grid-template-columns:1.3fr 1fr 1.2fr .9fr .9fr 1fr 1fr}
 
 .ie-bands .lp-fill{width:66.66%}.ie-bands .lp-dot{left:66.66%}@keyframes lpDot{from{left:0}to{left:66.66%}}
 
@@ -588,7 +598,7 @@ body.ie{margin:0;background:#fff}
         <a class="lp-btn ie-tgbtn" href="#/login"><svg class="tgi" viewBox="0 0 24 24" aria-hidden="true"><path d="M21.9 4.3 18.7 19.4c-.2 1-.9 1.3-1.7.8l-4.8-3.5-2.3 2.2c-.3.3-.5.5-1 .5l.3-4.9 8.9-8c.4-.3-.1-.5-.6-.2L6.4 13.2l-4.7-1.5c-1-.3-1-1 .2-1.5L20.5 3c.9-.3 1.6.2 1.4 1.3z"/></svg>Telegram orqali boshlash</a>
         <a class="lp-btn lp-btn-line" href="#/guide">Bepul qo‘llanma</a>
       </div>
-      <p class="ie-note">Ro‘yxatdan o‘tish 10 soniya: parol kerak emas.</p>
+      <p class="ie-note">To‘liq Listening va Reading testi — bepul. Ro‘yxatdan o‘tish 10 soniya, parol kerak emas.</p>
       <figure class="lp-track ie-bands" aria-label="Band ball shkalasi: 5.5, 6.5, 7.5, 8.5. Maqsad 7.5">
         <div class="lp-rail"><i class="lp-fill"></i>
           <span style="--x:0%">5.5</span><span style="--x:33.33%">6.5</span><span class="goal" style="--x:66.66%">7.5</span><span style="--x:100%">8.5</span>
@@ -725,18 +735,19 @@ document.querySelectorAll('img.lg').forEach(i=>i.src=LOGO);document.querySelecto
 
 const TGI='<svg class="tgi" viewBox="0 0 24 24" aria-hidden="true"><path d="M21.9 4.3 18.7 19.4c-.2 1-.9 1.3-1.7.8l-4.8-3.5-2.3 2.2c-.3.3-.5.5-1 .5l.3-4.9 8.9-8c.4-.3-.1-.5-.6-.2L6.4 13.2l-4.7-1.5c-1-.3-1-1 .2-1.5L20.5 3c.9-.3 1.6.2 1.4 1.3z"/></svg>';
 const TESTS=[
- {k:'listening',t:'Listening',full:'IELTS Listening · Test 1',spec:['4 qism','40 savol','30 daqiqa'],d:'Audio, savollar paneli va transcript bilan tahlil.',st:'soon'},
- {k:'reading',t:'Reading',full:'IELTS Academic Reading · Test 1',spec:['3 matn','40 savol','60 daqiqa'],d:'Matn va savollar yonma-yon, belgilash va highlight.',st:'soon'},
+ {k:'listening',id:'l1',t:'Listening',full:'IELTS Listening · Test 1',spec:['4 qism','40 savol','~35 daqiqa'],d:'Audio bir marta eshittiriladi — xuddi imtihondagidek. Keyin audio bilan xatolarni tahlil qilasiz.',st:'live'},
+ {k:'reading',id:'r1',t:'Reading',full:'IELTS Academic Reading · Test 1',spec:['3 matn','40 savol','60 daqiqa'],d:'Matn va savollar yonma-yon, highlight va savollar paneli bilan.',st:'live'},
  {k:'writing',t:'Writing',full:'IELTS Writing',spec:['Task 1','Task 2','60 daqiqa'],d:'Insho yozing va mezonlar bo‘yicha baho oling.',st:'later'}];
 const ART={listening:'<svg viewBox="0 0 120 60" aria-hidden="true"><path d="M2 30h10l6-18 8 36 8-28 7 20 7-12 6 4h8l6-22 8 44 8-34 7 22 6-10h13" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/></svg>',
  reading:'<svg viewBox="0 0 120 60" aria-hidden="true"><g fill="currentColor"><rect x="4" y="8" width="70" height="5" rx="2.5"/><rect x="4" y="20" width="96" height="5" rx="2.5"/><rect x="4" y="32" width="84" height="5" rx="2.5"/><rect x="4" y="44" width="58" height="5" rx="2.5"/></g><rect x="80" y="40" width="34" height="12" rx="3" fill="none" stroke="currentColor" stroke-width="3"/></svg>',
  writing:'<svg viewBox="0 0 120 60" aria-hidden="true"><path d="M6 46c14-16 22-16 30-4s16 10 26-6 20-14 28 2 14 10 24-4" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><path d="m96 10 12 12-30 30H66V40z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/></svg>'};
-function testCard(x,inApp){
-  const badge=x.st==='soon'?'<span class="ie-chip">Tez orada</span>':'<span class="ie-chip mute">Keyinroq</span>';
+function testCard(x,inApp,res){
+  const best=(res||[]).filter(r=>r.test===x.id).sort((a,b)=>b.band-a.band)[0];
+  const badge=x.st==='live'?(best?`<span class="ie-chip ok">Eng yaxshi: ${best.band.toFixed(1)}</span>`:'<span class="ie-chip live">Bepul</span>'):x.st==='soon'?'<span class="ie-chip">Tez orada</span>':'<span class="ie-chip mute">Keyinroq</span>';
   return `<article class="ie-test ie-${x.k}"><div class="ie-tart">${ART[x.k]}</div><div class="ie-tb">
     <div class="ie-th"><small>${esc(x.full)}</small>${badge}</div><h3>${esc(x.t)}</h3>
     <ul class="ie-spec">${x.spec.map(s=>`<li>${esc(s)}</li>`).join('')}</ul><p>${esc(x.d)}</p>
-    ${inApp?`<button class="ie-tbtn" type="button" disabled>${x.st==='soon'?'Test tez orada ochiladi':'Tayyorlanmoqda'}</button>`:''}</div></article>`}
+    ${inApp?(x.st==='live'?`<a class="lp-btn ie-wide ie-go" href="test.html#${x.id}">${best?'Qayta ishlash':'Testni boshlash'}</a>`:`<button class="ie-tbtn" type="button" disabled>Tayyorlanmoqda</button>`):''}</div></article>`}
 $('#lpTests').innerHTML=TESTS.map(x=>testCard(x,false)).join('');
 
 /* ---------- session ---------- */
@@ -796,20 +807,24 @@ function dash(){
   show('#app');$('#outBtn').classList.remove('hide');$('#appSub').textContent='IELTS platformasi';
   const first=(S.name||'').split(' ')[0];
   $('#view').innerHTML=`<div class="ie-wrap">
-    <section class="ie-hello"><div><small>EDUNEST IELTS</small><h1>Salom, ${esc(first)}!</h1><p>Testlar tayyorlanmoqda. Ochilishi bilan sizga Telegram’da xabar beramiz.</p></div>
+    <section class="ie-hello"><div><small>EDUNEST IELTS</small><h1>Salom, ${esc(first)}!</h1><p>Listening va Reading testlari tayyor. Band ballingizni bugun bilib oling.</p></div>
       <div class="ie-me">${S.tgu?`<span class="ie-chip tg">${TGI}${esc(S.tgu)}</span>`:''}</div></section>
-    <h2 class="ie-h2">Testlar</h2><div class="ie-tests in">${TESTS.map(x=>testCard(x,true)).join('')}</div>
-    <h2 class="ie-h2">Natijalarim</h2>
-    <div class="ie-empty"><b>Hali natija yo‘q</b><p>Birinchi testni ishlaganingizdan so‘ng band ballaringiz va o‘sish grafigi shu yerda ko‘rinadi.</p></div>
+    <h2 class="ie-h2">Testlar</h2><div class="ie-tests in" id="myTests">${TESTS.map(x=>testCard(x,true,S.res)).join('')}</div>
+    <h2 class="ie-h2">Natijalarim</h2><div id="myRes">${resHTML(S.res)}</div>
     <div class="ie-duo">
       <a class="ie-guidecard" href="#/guide"><img src="c1-guide.png" alt="" loading="lazy"><div><small>Bepul qo‘llanma</small><b>Listening’ni 1.5 oyda 7.5–8.0 ga chiqargan usul</b><span>O‘qish →</span></div></a>
       <div class="ie-teach"><img class="tph" alt="A'zamjon Toxirov"><div><b>A'zamjon Toxirov</b><span>C1 o‘qituvchi, EDUNEST Academy</span>
         <div class="ie-tlinks"><a href="https://t.me/teachertx" target="_blank" rel="noopener">Telegram’da yozish</a><a href="tel:+998507178400">Qo‘ng‘iroq</a></div></div></div>
     </div></div>`;
   document.querySelectorAll('#view img.tph').forEach(i=>i.src=PHOTO);
-  cget({action:'ime',id:S.uid,t:S.t}).then(j=>{if(j&&j.ok===false&&j.error==='auth'){toast('Qaytadan kiring');out()}else if(j&&j.user){S.name=j.user.name;S.tgu=j.user.tgu;ls.set('session',JSON.stringify(S))}}).catch(()=>{});
+  cget({action:'ime',id:S.uid,t:S.t}).then(j=>{if(j&&j.ok===false&&j.error==='auth'){toast('Qaytadan kiring');out()}else if(j&&j.user){S.name=j.user.name;S.tgu=j.user.tgu;S.res=j.results||[];ls.set('session',JSON.stringify(S));
+    const t=$('#myTests'),r=$('#myRes');if(t)t.innerHTML=TESTS.map(x=>testCard(x,true,S.res)).join('');if(r)r.innerHTML=resHTML(S.res)}}).catch(()=>{});
 }
 
+const TN={l1:'Listening · Test 1',r1:'Reading · Test 1'};
+function resHTML(res){
+  if(!res||!res.length)return '<div class="ie-empty"><b>Hali natija yo‘q</b><p>Birinchi testni ishlaganingizdan so‘ng band ballaringiz shu yerda ko‘rinadi.</p></div>';
+  return `<div class="ie-res">${res.slice().sort((a,b)=>b.at-a.at).map(r=>`<div class="ie-ri"><span class="ie-bd">${(+r.band).toFixed(1)}</span><div><b>${esc(TN[r.test]||r.test)}</b><small>${r.raw} / 40 to‘g‘ri · ${dt(r.at)}${r.mins?' · '+r.mins+' daqiqa':''}</small></div><a href="test.html#${esc(r.test)}">Qayta</a></div>`).join('')}</div>`}
 /* ---------- teacher panel ---------- */
 let TD=null;
 function teacher(){
@@ -825,20 +840,22 @@ function teacher(){
 }
 const dt=t=>{if(!t)return '—';const d=new Date(t);return d.toLocaleDateString('uz-UZ',{day:'2-digit',month:'2-digit',year:'numeric'})+' '+d.toLocaleTimeString('uz-UZ',{hour:'2-digit',minute:'2-digit'})};
 const phoneNice=p=>{const d=String(p||'').replace(/\D/g,'');return d.length===12?`+${d.slice(0,3)} ${d.slice(3,5)} ${d.slice(5,8)} ${d.slice(8,10)} ${d.slice(10)}`:(p||'—')};
+function bandOf(u,t){const r=(u.results||[]).filter(x=>x.test===t).sort((a,b)=>b.at-a.at);return r.length?`<b class="ie-bd sm">${(+r[0].band).toFixed(1)}</b><i>${r[0].raw}/40${r.length>1?' · '+r.length+'×':''}</i>`:'<i>—</i>'}
 function tdraw(q){
   const now=Date.now(),day=864e5,U=TD;
-  const kp=[['Jami foydalanuvchi',U.length],['Bugun qo‘shilgan',U.filter(u=>now-u.joined<day).length],['So‘nggi 7 kunda',U.filter(u=>now-u.joined<7*day).length],['7 kunda faol',U.filter(u=>now-u.seen<7*day).length]];
+  const kp=[['Jami foydalanuvchi',U.length],['Bugun qo‘shilgan',U.filter(u=>now-u.joined<day).length],['So‘nggi 7 kunda',U.filter(u=>now-u.joined<7*day).length],['Test ishlaganlar',U.filter(u=>(u.results||[]).length).length]];
   const f=q?U.filter(u=>(u.name+' '+u.tgu+' '+u.phone).toLowerCase().includes(q.toLowerCase())):U;
   $('#view').innerHTML=`<div class="ie-wrap"><div class="ie-thead"><h1>Foydalanuvchilar</h1><div class="ie-tact"><button class="lp-btn lp-btn-sm lp-btn-line" id="csv" type="button">CSV yuklab olish</button><button class="lp-btn lp-btn-sm lp-btn-line" id="tout" type="button">Chiqish</button></div></div>
     <div class="ie-kpis">${kp.map(([l,v])=>`<div class="ie-kpi"><b>${v}</b><small>${l}</small></div>`).join('')}</div>
     <input class="ie-search" id="tq" type="search" placeholder="Ism, @username yoki telefon bo‘yicha qidirish" value="${esc(q)}" aria-label="Qidirish">
-    ${f.length?`<div class="ie-table" role="table"><div class="ie-tr ie-trh" role="row"><span>Ism</span><span>Telegram</span><span>Telefon</span><span>Qo‘shilgan</span><span>Oxirgi kirish</span><span>Kirishlar</span></div>
+    ${f.length?`<div class="ie-table" role="table"><div class="ie-tr ie-trh" role="row"><span>Ism</span><span>Telegram</span><span>Telefon</span><span>Listening</span><span>Reading</span><span>Qo‘shilgan</span><span>Oxirgi kirish</span></div>
     ${f.map(u=>`<div class="ie-tr" role="row"><span class="nm">${esc(u.name)}</span><span>${u.tgu?`<a href="https://t.me/${esc(u.tgu.slice(1))}" target="_blank" rel="noopener">${esc(u.tgu)}</a>`:'<i>username yo‘q</i>'}</span>
-      <span>${u.phone?`<a href="tel:${esc(u.phone)}">${esc(phoneNice(u.phone))}</a>`:'—'}</span><span>${dt(u.joined)}</span><span>${dt(u.seen)}</span><span>${u.visits||0}</span></div>`).join('')}</div>`
+      <span>${u.phone?`<a href="tel:${esc(u.phone)}">${esc(phoneNice(u.phone))}</a>`:'—'}</span><span>${bandOf(u,'l1')}</span><span>${bandOf(u,'r1')}</span><span>${dt(u.joined)}</span><span>${dt(u.seen)}</span></div>`).join('')}</div>`
     :`<div class="ie-empty"><b>${q?'Hech kim topilmadi':'Hali hech kim ro‘yxatdan o‘tmagan'}</b><p>${q?'Boshqa so‘z bilan qidirib ko‘ring.':'Sayt havolasini ulashing: foydalanuvchilar Telegram orqali kirgach, shu yerda paydo bo‘ladi.'}</p></div>`}</div>`;
   const tq=$('#tq');tq.oninput=()=>{const v=tq.value,pos=tq.selectionStart;tdraw(v);const n=$('#tq');n.focus();n.setSelectionRange(pos,pos)};
   $('#tout').onclick=()=>{ss.set('tk',null);location.hash='#/'};
-  $('#csv').onclick=()=>{const rows=[['Ism','Telegram','Telefon','Qo‘shilgan','Oxirgi kirish','Kirishlar'],...TD.map(u=>[u.name,u.tgu,u.phone,dt(u.joined),dt(u.seen),u.visits])];
+  $('#csv').onclick=()=>{const lb=(u,t)=>{const r=(u.results||[]).filter(x=>x.test===t).sort((a,b)=>b.at-a.at)[0];return r?r.band+' ('+r.raw+'/40)':''};
+    const rows=[['Ism','Telegram','Telefon','Listening','Reading','Qo‘shilgan','Oxirgi kirish','Kirishlar'],...TD.map(u=>[u.name,u.tgu,u.phone,lb(u,'l1'),lb(u,'r1'),dt(u.joined),dt(u.seen),u.visits])];
     const csv='﻿'+rows.map(r=>r.map(c=>'"'+String(c==null?'':c).replace(/"/g,'""')+'"').join(',')).join('\n');
     const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));a.download='edunest-ielts-foydalanuvchilar.csv';a.click()};
 }
