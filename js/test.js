@@ -10,7 +10,10 @@ const IC={full:'<svg viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20
 /* min = minutes shown before the test (audio + 2 min check for Listening) */
 const TESTS={l1:{file:'ielts-l1',kind:'listening',min:35},l2:{file:'ielts-l2',kind:'listening',min:39},l3:{file:'ielts-l3',kind:'listening',min:41},
   l5:{file:'ielts-l5',kind:'listening',min:34},l6:{file:'ielts-l6',kind:'listening',min:30},l7:{file:'ielts-l7',kind:'listening',min:26},l8:{file:'ielts-l8',kind:'listening',min:28},
-  r1:{file:'ielts-r1',kind:'reading',min:60},r2:{file:'ielts-r2',kind:'reading',min:60},r3:{file:'ielts-r3',kind:'reading',min:60},r4:{file:'ielts-r4',kind:'reading',min:60}};
+  l9:{file:'ielts-l9',kind:'listening',min:26},l10:{file:'ielts-l10',kind:'listening',min:26},
+  r1:{file:'ielts-r1',kind:'reading',min:60},r2:{file:'ielts-r2',kind:'reading',min:60},r3:{file:'ielts-r3',kind:'reading',min:60},r4:{file:'ielts-r4',kind:'reading',min:60},
+  r5:{file:'ielts-r5',kind:'reading',min:60},r6:{file:'ielts-r6',kind:'reading',min:60},r7:{file:'ielts-r7',kind:'reading',min:60},r8:{file:'ielts-r8',kind:'reading',min:60},
+  r10:{file:'ielts-r10',kind:'reading',min:60}};
 /* "Choose TWO/THREE" sets: one list of checkboxes, each correct letter = 1 mark in any order (DOC.groups: [{q:[11,12],ans:['E','C']}]) */
 const GRP=()=>(DOC&&DOC.groups)||[];
 const grpOf=n=>GRP().find(g=>g.q.includes(n));

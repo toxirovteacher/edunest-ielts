@@ -15,11 +15,14 @@ document.querySelectorAll('img.lg').forEach(i=>i.src=LOGO);document.querySelecto
 
 const TGI='<svg class="tgi" viewBox="0 0 24 24" aria-hidden="true"><path d="M21.9 4.3 18.7 19.4c-.2 1-.9 1.3-1.7.8l-4.8-3.5-2.3 2.2c-.3.3-.5.5-1 .5l.3-4.9 8.9-8c.4-.3-.1-.5-.6-.2L6.4 13.2l-4.7-1.5c-1-.3-1-1 .2-1.5L20.5 3c.9-.3 1.6.2 1.4 1.3z"/></svg>';
 /* the test library: same ids and minutes as TESTS in test.html (build.py checks they match).
-   Numbers follow the teacher's pack (Listening 4 is not in the pack yet, so l4 is missing on purpose). */
+   Numbers follow the teacher's pack (Listening 4 has no audio and Reading 9's answer key is wrong, so l4 and r9 are missing on purpose). */
 const TESTS=[
  {k:'listening',id:'l1',min:35},{k:'listening',id:'l2',min:39},{k:'listening',id:'l3',min:41},{k:'listening',id:'l5',min:34},
- {k:'listening',id:'l6',min:30},{k:'listening',id:'l7',min:26},{k:'listening',id:'l8',min:28},
- {k:'reading',id:'r1',min:60},{k:'reading',id:'r2',min:60},{k:'reading',id:'r3',min:60},{k:'reading',id:'r4',min:60}];
+ {k:'listening',id:'l6',min:30},{k:'listening',id:'l7',min:26},{k:'listening',id:'l8',min:28},{k:'listening',id:'l9',min:26},
+ {k:'listening',id:'l10',min:26},
+ {k:'reading',id:'r1',min:60},{k:'reading',id:'r2',min:60},{k:'reading',id:'r3',min:60},{k:'reading',id:'r4',min:60},
+ {k:'reading',id:'r5',min:60},{k:'reading',id:'r6',min:60},{k:'reading',id:'r7',min:60},{k:'reading',id:'r8',min:60},
+ {k:'reading',id:'r10',min:60}];
 const SK={listening:'Listening',reading:'Reading'};
 const TN=id=>{const x=TESTS.find(t=>t.id===id);return x?SK[x.k]+' · Test '+id.slice(1):String(id)};
 const bestOf=(res,id)=>{const r=(res||[]).filter(x=>x.test===id);return r.length?r.reduce((a,b)=>+b.band>+a.band?b:a):null};
